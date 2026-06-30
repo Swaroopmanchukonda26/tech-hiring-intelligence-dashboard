@@ -6,7 +6,21 @@ import seaborn as sns
 import plotly.express as px
 import warnings
 warnings.filterwarnings('ignore')
+import pickle
 
+# Load ML model
+@st.cache_resource
+def load_model():
+    with open('attrition_model.pkl', 'rb') as f:
+        model = pickle.load(f)
+    with open('feature_columns.pkl', 'rb') as f:
+        feature_cols = pickle.load(f)
+    # Fix compatibility issue
+    if not hasattr(model, 'multi_class'):
+        model.multi_class = 'auto'
+    return model, feature_cols
+
+model, feature_cols = load_model()
 # Page configuration
 st.set_page_config(
     page_title="Tech Hiring Intelligence Dashboard",
@@ -66,7 +80,7 @@ st.sidebar.markdown("---")
 
 analysis = st.sidebar.selectbox(
     "Select Analysis",
-    ["🏠 Overview", "🔴 Tech Layoffs", "🟡 Fresher Placement", "🟢 HR Attrition"]
+    ["🏠 Overview", "🔴 Tech Layoffs", "🟡 Fresher Placement", "🟢 HR Attrition", "🤖 Attrition Predictor"]
 )
 
 st.sidebar.markdown("---")
@@ -314,6 +328,72 @@ elif analysis == "🟢 HR Attrition":
                  color_continuous_scale='Greens')
     fig3.update_layout(height=350)
     st.plotly_chart(fig3, use_container_width=True)
+# ═══════════════════════════════════════
+# ML ATTRITION PREDICTOR PAGE
+# ═══════════════════════════════════════
+elif analysis == "🤖 Attrition Predictor":
+    st.subheader("🤖 Employee Attrition Prediction")
+    st.write("Enter employee details to predict if they are likely to leave the company")
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        age = st.slider("Age", 18, 60, 30)
+        monthly_income = st.number_input("Monthly Income ($)", 1000, 20000, 5000)
+        total_working_years = st.slider("Total Working Years", 0, 40, 5)
+
+    with col2:
+        overtime = st.selectbox("OverTime", ["Yes", "No"])
+        job_satisfaction = st.slider("Job Satisfaction (1-4)", 1, 4, 3)
+        years_at_company = st.slider("Years At Company", 0, 40, 3)
+
+    with col3:
+        marital_status = st.selectbox("Marital Status", ["Single", "Married", "Divorced"])
+        distance_from_home = st.slider("Distance From Home (miles)", 1, 30, 10)
+        work_life_balance = st.slider("Work Life Balance (1-4)", 1, 4, 3)
+
+    if st.button("🔮 Predict Attrition Risk"):
+
+        # Create input array matching training features
+        input_data = pd.DataFrame(np.zeros((1, len(feature_cols))), columns=feature_cols)
+
+        # Fill known values
+        if 'Age' in input_data.columns:
+            input_data['Age'] = age
+        if 'MonthlyIncome' in input_data.columns:
+            input_data['MonthlyIncome'] = monthly_income
+        if 'TotalWorkingYears' in input_data.columns:
+            input_data['TotalWorkingYears'] = total_working_years
+        if 'OverTime' in input_data.columns:
+            input_data['OverTime'] = 1 if overtime == "Yes" else 0
+        if 'JobSatisfaction' in input_data.columns:
+            input_data['JobSatisfaction'] = job_satisfaction
+        if 'YearsAtCompany' in input_data.columns:
+            input_data['YearsAtCompany'] = years_at_company
+        if 'DistanceFromHome' in input_data.columns:
+            input_data['DistanceFromHome'] = distance_from_home
+        if 'WorkLifeBalance' in input_data.columns:
+            input_data['WorkLifeBalance'] = work_life_balance
+        if 'MaritalStatus' in input_data.columns:
+            marital_map = {"Single": 2, "Married": 1, "Divorced": 0}
+            input_data['MaritalStatus'] = marital_map[marital_status]
+
+        # Predict
+        prediction = model.predict(input_data)[0]
+        probability = model.predict_proba(input_data)[0]
+
+        st.markdown("---")
+
+        if prediction == 1:
+            st.error(f"⚠️ HIGH RISK: This employee is likely to leave")
+            st.write(f"Attrition Probability: {probability[1]*100:.1f}%")
+        else:
+            st.success(f"✅ LOW RISK: This employee is likely to stay")
+            st.write(f"Retention Probability: {probability[0]*100:.1f}%")
+
+        st.markdown("---")
+        st.write("**Model Info:** Logistic Regression | Accuracy: 86.05%")
+        st.write("**Top Factors:** Monthly Income, OverTime, Hourly Rate, Marital Status")
 
 # Footer
 st.markdown("---")
