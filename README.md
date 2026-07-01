@@ -1,7 +1,8 @@
 # 🔍 Tech Industry Hiring Intelligence Dashboard
+
 ![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Live-red?logo=streamlit)
-![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow?logo=powerbi)
+![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-yellow)
 ![SQL](https://img.shields.io/badge/SQL-SQLite-blue?logo=sqlite)
 ![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Scikit--Learn-orange?logo=scikitlearn)
 ![License](https://img.shields.io/badge/License-MIT-green)
@@ -10,12 +11,36 @@ An end-to-end **Data Analytics & Machine Learning** project that analyzes **Tech
 
 ---
 
-## 🌐 Live Demo
+# 📑 Table of Contents
 
-🚀 **Live Dashboard:**  
-https://tech-hiring-intelligence-dashboard-adumfrvmzxuonvwmbwxjro.streamlit.app/
+- [🌐 Live Demo](#-live-demo)
+- [📌 Project Overview](#-project-overview)
+- [⭐ Project Highlights](#-project-highlights)
+- [📊 Datasets Used](#-datasets-used)
+- [📈 Key Business Insights](#-key-business-insights)
+- [🤖 Machine Learning Module](#-machine-learning-module)
+- [📊 Dashboard Modules](#-dashboard-modules)
+- [🛠️ Technologies Used](#️-technologies-used)
+- [📂 Project Structure](#-project-structure)
+- [📸 Dashboard Preview](#-dashboard-preview)
+- [⚙️ Installation](#️-installation)
+- [🚀 Future Enhancements](#-future-enhancements)
+- [📊 Skills Demonstrated](#-skills-demonstrated)
+- [🎯 Business Impact](#-business-impact)
+- [👨‍💻 Author](#-author)
+- [📜 License](#-license)
 
-## 💻 GitHub Repository
+---
+
+# 🌐 Live Demo
+
+🚀 **Live Dashboard**
+
+👉 https://tech-hiring-intelligence-dashboard-adumfrvmzxuonvwmbwxjro.streamlit.app/
+
+---
+
+# 💻 GitHub Repository
 
 🔗 https://github.com/Swaroopmanchukonda26/tech-hiring-intelligence-dashboard
 
@@ -23,18 +48,29 @@ https://tech-hiring-intelligence-dashboard-adumfrvmzxuonvwmbwxjro.streamlit.app/
 
 # 📌 Project Overview
 
-The **Tech Industry Hiring Intelligence Dashboard** is an interactive analytics platform that provides business insights into hiring trends, layoffs, placements, and employee attrition.
+The **Tech Industry Hiring Intelligence Dashboard** is an interactive analytics platform that provides valuable business insights into hiring trends, layoffs, campus placements, and employee attrition.
 
 The project combines:
 
-- Data Cleaning
-- Exploratory Data Analysis (EDA)
-- SQL Business Queries
-- Interactive Dashboards
-- Machine Learning Prediction
-- Web Deployment
+- 🧹 Data Cleaning
+- 📊 Exploratory Data Analysis (EDA)
+- 🗄 SQL Business Queries
+- 📈 Interactive Dashboards
+- 🤖 Machine Learning Prediction
+- ☁️ Web Deployment using Streamlit
 
-making it a complete end-to-end Data Analytics portfolio project.
+This project demonstrates a complete **end-to-end Data Analytics workflow**, from raw datasets to a live deployed application.
+
+---
+
+# ⭐ Project Highlights
+
+- 📊 Analyzed **105,898+ records** across three real-world datasets
+- 🤖 Built an Employee Attrition Prediction model using Machine Learning
+- 📈 Developed interactive dashboards using Streamlit & Power BI
+- 🗃 Solved business problems using SQL
+- 🌐 Successfully deployed the project on Streamlit Cloud
+- 📂 Structured as a complete portfolio-ready analytics project
 
 ---
 
@@ -84,46 +120,47 @@ The dashboard includes an interactive **Employee Attrition Prediction System** b
 
 ### Features
 
-- Predict employee attrition
-- Interactive prediction form
-- Pre-trained ML model
-- Instant prediction results
+- Employee Attrition Prediction
+- Interactive Prediction Form
+- Pre-trained Machine Learning Model
+- Instant Prediction Results
+- Feature Importance Analysis
 
 ---
 
 # 📊 Dashboard Modules
 
-## 1️⃣ Tech Layoffs Dashboard
+## 🔴 Tech Layoffs Dashboard
 
-- Company-wise layoffs
-- Industry analysis
-- Yearly trends
-- Country-wise layoffs
+- Company-wise Layoffs
+- Industry Analysis
+- Country-wise Analysis
+- Yearly Trends
 
 ---
 
-## 2️⃣ Student Placement Dashboard
+## 🟡 Student Placement Dashboard
 
-- Placement percentage
+- Placement Rate
 - CGPA vs Salary
-- Internship analysis
-- Placement by college tier
+- Internship Analysis
+- Placement by College Tier
 
 ---
 
-## 3️⃣ HR Analytics Dashboard
+## 🟢 HR Analytics Dashboard
 
-- Attrition rate
-- Department analysis
-- Monthly trends
-- Salary insights
-- Feature importance
+- Employee Attrition Rate
+- Department Analysis
+- Salary Distribution
+- Monthly Trends
+- Feature Importance
 
 ---
 
-## 4️⃣ ML Prediction Dashboard
+## 🤖 ML Prediction Dashboard
 
-Predict employee attrition based on employee information using Machine Learning.
+Predict employee attrition using Machine Learning based on employee information.
 
 ---
 
@@ -134,11 +171,11 @@ Predict employee attrition based on employee information using Machine Learning.
 | Python | Data Processing |
 | Pandas | Data Cleaning |
 | NumPy | Numerical Computing |
-| Matplotlib | Static Visualization |
-| Seaborn | Statistical Visualization |
+| Matplotlib | Static Visualizations |
+| Seaborn | Statistical Charts |
 | Plotly | Interactive Charts |
-| SQL (SQLite) | Business Analysis |
-| Power BI | Dashboard Creation |
+| SQL (SQLite) | Business Queries |
+| Power BI | Interactive Dashboard |
 | Streamlit | Web Application |
 | Scikit-learn | Machine Learning |
 | Git & GitHub | Version Control |
@@ -162,13 +199,10 @@ tech-hiring-intelligence-dashboard/
 │   └── charts/
 │
 ├── dashboard/
-│
 ├── notebooks/
-│
 ├── SQL/
-│
 ├── requirements.txt
-│
+├── runtime.txt
 └── README.md
 ```
 
@@ -200,7 +234,7 @@ tech-hiring-intelligence-dashboard/
 
 ---
 
-## 📊 Interactive Dashboard View
+## 📊 Interactive Dashboard
 
 ![Interactive Dashboard](data/charts/screenshot2.png)
 
@@ -210,27 +244,29 @@ tech-hiring-intelligence-dashboard/
 
 ![ML Prediction Dashboard](data/charts/screenshot3.png)
 
+---
+
 # ⚙️ Installation
 
-Clone the repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/Swaroopmanchukonda26/tech-hiring-intelligence-dashboard.git
 ```
 
-Go into the project directory
+### Navigate to the Project
 
 ```bash
 cd tech-hiring-intelligence-dashboard
 ```
 
-Install dependencies
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the Streamlit application
+### Run the Streamlit App
 
 ```bash
 streamlit run app/app.py
@@ -242,7 +278,7 @@ streamlit run app/app.py
 
 - User Authentication
 - Cloud Database Integration
-- Live Hiring Data API
+- Live Hiring Data APIs
 - AI-powered Hiring Trend Forecasting
 - Resume Screening Module
 - Job Recommendation System
@@ -252,13 +288,14 @@ streamlit run app/app.py
 # 📊 Skills Demonstrated
 
 - Data Cleaning
+- Data Preprocessing
 - Exploratory Data Analysis (EDA)
-- Data Visualization
 - SQL Query Writing
-- Dashboard Development
+- Interactive Dashboard Development
+- Data Visualization
 - Machine Learning
 - Model Deployment
-- Streamlit Application Development
+- Streamlit Development
 - Business Intelligence
 - Git & GitHub
 
@@ -273,7 +310,7 @@ This project demonstrates how data analytics can help organizations:
 - Improve campus recruitment
 - Analyze employee attrition
 - Support HR decision-making
-- Make data-driven hiring decisions
+- Enable data-driven business strategies
 
 ---
 
@@ -283,22 +320,24 @@ This project demonstrates how data analytics can help organizations:
 
 🎓 B.Tech Student | Aspiring Data Analyst | Business Analyst
 
-GitHub:
+**GitHub:**  
 https://github.com/Swaroopmanchukonda26
 
-LinkedIn:
-(Add your LinkedIn Profile)
+**LinkedIn:**  
+www.linkedin.com/in/
+swaroop-manchukonda
+
 
 ---
 
-# ⭐ If you found this project useful
+# ⭐ Support
 
-Please consider giving this repository a ⭐ on GitHub.
+If you found this project useful, please consider giving it a **⭐ Star** on GitHub.
 
-It motivates me to build and share more data analytics projects.
+It motivates me to build and share more Data Analytics projects.
 
 ---
 
-## 📜 License
+# 📜 License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**.
