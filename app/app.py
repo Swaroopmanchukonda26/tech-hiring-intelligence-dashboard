@@ -8,18 +8,26 @@ import warnings
 warnings.filterwarnings('ignore')
 import pickle
 
+from pathlib import Path
+
 # Load ML model
+BASE_DIR = Path(__file__).resolve().parent
+
 @st.cache_resource
 def load_model():
-    with open('attrition_model.pkl', 'rb') as f:
+    with open(BASE_DIR / "attrition_model.pkl", "rb") as f:
         model = pickle.load(f)
-    with open('feature_columns.pkl', 'rb') as f:
+
+    with open(BASE_DIR / "feature_columns.pkl", "rb") as f:
         feature_cols = pickle.load(f)
+
     # Fix compatibility issue
-    if not hasattr(model, 'multi_class'):
-        model.multi_class = 'auto'
+    if not hasattr(model, "multi_class"):
+        model.multi_class = "auto"
+
     return model, feature_cols
 
+model, feature_cols = load_model()
 model, feature_cols = load_model()
 # Page configuration
 st.set_page_config(
